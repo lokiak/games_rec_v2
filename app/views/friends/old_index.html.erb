@@ -1,0 +1,59 @@
+<h1>
+  Who do you like to work in groups with?
+</h1>
+
+<p></p>
+
+<%= @list_of_friends.at(0).recipient_id %>
+
+<p></P>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Classes liked</th>
+      <th scope="col">Your friend?</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% Friend.all.each do |a_friend| %>
+    <tr>
+      <th scope="row"><%= a_friend.sender_id %></th>
+      <td></td>
+      <td><a href="/friends/<%= a_friend.id %>">Show details</a></td>
+    </tr>
+  <%end%>
+</table>
+
+
+
+
+ 
+
+<hr>
+
+
+
+
+<div>
+  <div>
+    <h2>
+      Add a new friend
+    </h2>
+
+    <form action="/insert_friend" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create friend
+      </button>
+    </form>
+  </div>
+</div>

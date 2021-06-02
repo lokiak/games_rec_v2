@@ -1,0 +1,30 @@
+<h1>
+  The Results
+</h1>
+
+<p></p>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Course</th>
+      <th scope="col">How many friends are also interested?</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @printable_results.each do |k,v| %>
+    <tr>
+      <th scope="row"><%= p k%></th>
+          <td><%= p v%></td>
+      <td>
+          <%= if Course.where({ :name => k }).at(0).group_size - 1 - v <= 0
+          p "\u{1F604} You have enough interest to fill a group!"
+          else
+          p "You only need #{Course.where({ :name => k }).at(0).group_size - 1 - v} more friends to fill a group!"
+          end%>
+      </td>
+    <%end%>
+    </tr>
+</table>
