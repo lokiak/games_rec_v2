@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all videogames
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new videogame
+    </h2>
+
+    <form action="/insert_videogame" method="post">
+      <div>
+        <label for="publisher_box">
+          Publisher
+        </label>
+
+        <input type="text" id="publisher_box" name="query_publisher">
+      </div>
+
+      <div>
+        <label for="published_box">
+          Published
+        </label>
+
+        <input type="datetime-local" id="published_box" name="query_published">
+      </div>
+
+      <div>
+        <label for="game_photo_box">
+          Game photo
+        </label>
+
+        <input type="text" id="game_photo_box" name="query_game_photo">
+      </div>
+
+      <div>
+        <label for="recommendations_count_box">
+          Recommendations count
+        </label>
+
+        <input type="text" id="recommendations_count_box" name="query_recommendations_count">
+      </div>
+
+      <button>
+        Create videogame
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Publisher
+        </th>
+
+        <th>
+          Published
+        </th>
+
+        <th>
+          Game photo
+        </th>
+
+        <th>
+          Recommendations count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_videogames.each do |a_videogame| %>
+      <tr>
+        <td>
+          <%= a_videogame.id %>
+        </td>
+
+        <td>
+          <%= a_videogame.publisher %>
+        </td>
+
+        <td>
+          <%= a_videogame.published %>
+        </td>
+
+        <td>
+          <%= a_videogame.game_photo %>
+        </td>
+
+        <td>
+          <%= a_videogame.recommendations_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_videogame.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_videogame.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/videogames/<%= a_videogame.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,117 @@
+<div>
+  <div>
+    <h1>
+      Videogame #<%= @the_videogame.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/videogames">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_videogame/<%= @the_videogame.id %>">
+          Delete videogame
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Publisher
+      </dt>
+      <dd>
+        <%= @the_videogame.publisher %>
+      </dd>
+
+      <dt>
+        Published
+      </dt>
+      <dd>
+        <%= @the_videogame.published %>
+      </dd>
+
+      <dt>
+        Game photo
+      </dt>
+      <dd>
+        <%= @the_videogame.game_photo %>
+      </dd>
+
+      <dt>
+        Recommendations count
+      </dt>
+      <dd>
+        <%= @the_videogame.recommendations_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_videogame.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_videogame.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit videogame
+    </h2>
+
+    <form action="/modify_videogame/<%= @the_videogame.id %>"  method="post" >
+      <div>
+        <label for="publisher_box">
+          Publisher
+        </label>
+
+        <input type="text" id="publisher_box" name="query_publisher" value="<%= @the_videogame.publisher %>">
+      </div>
+
+      <div>
+        <label for="published_box">
+          Published
+        </label>
+
+        <input type="datetime-local" id="published_box" name="query_published"
+         value="<%= @the_videogame.published %>">
+      </div>
+
+      <div>
+        <label for="game_photo_box">
+          Game photo
+        </label>
+
+        <input type="text" id="game_photo_box" name="query_game_photo" value="<%= @the_videogame.game_photo %>">
+      </div>
+
+      <div>
+        <label for="recommendations_count_box">
+          Recommendations count
+        </label>
+
+        <input type="text" id="recommendations_count_box" name="query_recommendations_count" value="<%= @the_videogame.recommendations_count %>">
+      </div>
+
+      <button>
+        Update videogame
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

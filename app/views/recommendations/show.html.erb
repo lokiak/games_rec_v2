@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Recommendation #<%= @the_recommendation.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/recommendations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_recommendation/<%= @the_recommendation.id %>">
+          Delete recommendation
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Videogame
+      </dt>
+      <dd>
+        <%= @the_recommendation.videogame_id %>
+      </dd>
+
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_recommendation.body %>
+      </dd>
+
+      <dt>
+        Recipient
+      </dt>
+      <dd>
+        <%= @the_recommendation.recipient_id %>
+      </dd>
+
+      <dt>
+        Sender
+      </dt>
+      <dd>
+        <%= @the_recommendation.sender_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_recommendation.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit recommendation
+    </h2>
+
+    <form action="/modify_recommendation/<%= @the_recommendation.id %>"  method="post" >
+      <div>
+        <label for="videogame_id_box">
+          Videogame
+        </label>
+
+        <input type="text" id="videogame_id_box" name="query_videogame_id" value="<%= @the_recommendation.videogame_id %>">
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body" value="<%= @the_recommendation.body %>">
+      </div>
+
+      <div>
+        <label for="recipient_id_box">
+          Recipient
+        </label>
+
+        <input type="text" id="recipient_id_box" name="query_recipient_id" value="<%= @the_recommendation.recipient_id %>">
+      </div>
+
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id" value="<%= @the_recommendation.sender_id %>">
+      </div>
+
+      <button>
+        Update recommendation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

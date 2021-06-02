@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all genres
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new genre
+    </h2>
+
+    <form action="/insert_genre" method="post">
+      <div>
+        <label for="genre_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_box" name="query_genre">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id">
+      </div>
+
+      <button>
+        Create genre
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Genre
+        </th>
+
+        <th>
+          Game
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_genres.each do |a_genre| %>
+      <tr>
+        <td>
+          <%= a_genre.id %>
+        </td>
+
+        <td>
+          <%= a_genre.genre %>
+        </td>
+
+        <td>
+          <%= a_genre.game_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_genre.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_genre.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/genres/<%= a_genre.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
