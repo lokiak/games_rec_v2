@@ -11,4 +11,6 @@
 #  updated_at            :datetime         not null
 #
 class Videogame < ApplicationRecord
+  has_one(:genre, { :class_name => "Genre", :foreign_key => "game_id", :dependent => :destroy })
+  has_many(:recommendations, { :class_name => "Recommendation", :foreign_key => "videogame_id", :dependent => :destroy })
 end

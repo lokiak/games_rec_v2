@@ -9,4 +9,7 @@
 #  game_id    :integer
 #
 class Genre < ApplicationRecord
+  belongs_to(:game, { :required => false, :class_name => "Videogame", :foreign_key => "game_id" })
+
+  has_one(:recommended_genre, { :through => :game, :source => :recommendations })
 end
